@@ -14,7 +14,7 @@
 ## Development Process: Java-first / Code-first
 ### Java Provider class
 - Rat service business implementation is the following: ma.aui.sse.paradigms.integration.rs.rat.provider.RemoteAccessUtility
-- Provider main class creates an instance of the rat business implementation (RemoteAccessUtility class) and publishes it as a web service under `http://localhost:8080/rat` using JAX-WS Endpoint class: ma.aui.sse.paradigms.integration.rs.rat.provider.Provider
+- Provider main class creates an instance of the rat business implementation (RemoteAccessUtility class) and publishes it as a web service under `http://localhost:8080/rat` using SpringBoot Application.
 
 ### Java server stub code
 - The code is built using the following command:
