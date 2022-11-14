@@ -1,29 +1,24 @@
-# Homework: XML/SOAP Remote Access Tool Web Service
+# Homework: REST Remote Access Tool Web Service
 
 ## Technology Enablers
-- Web Service definition language: WSDL
-    - It is an XML based definition language. It's used for describing the functionality of a SOAP based web service. WSDL files are central to testing SOAP-based services. 
-- Protocol: SOAP over HTTP 
-    - SOAP over HTTP is one type of binding that you can attach to a service. 
-- Provider programming language: Java (JAX-WS API)
-    - Java API for XML Web Services (JAX-WS) is a standardized API for creating and consuming SOAP web services.
-- Consumer programming languages: Python (Zeep module)
-    - Zeep is a python module which is used to inspect the WSDL document and generate the corresponding code to use the services and types in the document.
+- Web Service definition language: OpenAPI
+    - The OpenAPI Specification, previously known as the Swagger Specification, is a specification for machine-readable interface files for describing, producing, consuming and visualizing RESTful web services.
+- Protocol: REST over HTTP 
+    - REST refers to a set of attributes of a particular architectural style, while HTTP is a well-defined protocol that happens to exhibit many features of a RESTful system.
+- Provider programming language: Java (SpringBoot Application)
+    - Spring Boot makes it easy to create stand-alone, production-grade Spring-based Applications that you can run. We take an opinionated view of the Spring platform and third-party libraries, so that you can get started with minimum fuss. Most Spring Boot applications need very little Spring configuration.
+- Consumer programming languages: JavaScript (axios module)
+    - Axios is a promise-based HTTP Client for node.js and the browser. It is isomorphic (= it can run in the browser and nodejs with the same codebase). On the server-side it uses the native node.js http module, while on the client (browser) it uses XMLHttpRequests.
+
 
 ## Development Process: Java-first / Code-first
 ### Java Provider class
 - Rat service business implementation is the following: ma.aui.sse.paradigms.integration.rs.rat.provider.RemoteAccessUtility
-- There is no DTO classes as I will be transferring structures already found in Java Foundation classes.
 - Provider main class creates an instance of the rat business implementation (RemoteAccessUtility class) and publishes it as a web service under `http://localhost:8080/rat` using JAX-WS Endpoint class: ma.aui.sse.paradigms.integration.rs.rat.provider.Provider
 
-### WSDL and Java server stub code
+### Java server stub code
 - The code is built using the following command:
   - **./gradlew build**
-- If you are looking to generate the WSDL file, generate the RemoteAccessUtilityService WSDL from ma.aui.sse.paradigms.integration.xs.provider.RemoteAccessUtility class:
-  - **wsgen -wsdl -cp build/classes/java/main/ -d build/classes/java/main/ -r src/main/resources/ ma.aui.sse.paradigms.integration.rs.rat.provider.RemoteAccessUtility**
-- Set the service location url within the generated src/main/resources/RemoteAccessUtilityService.wsdl to: `http://localhost:8080/rat`
-
-- The WSDL code is already generated in my submission and can be found under: src/main/resources/RemoteAccessUtilityService.wsdl
 
 ### Running the Provider
 - **./gradlew run**
